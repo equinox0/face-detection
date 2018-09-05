@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button, Divider, Dropdown, Image, Input, Menu } from "semantic-ui-react";
 import styled from "styled-components";
+import { detect } from "./utils/viola-jones";
 
 class App extends Component {
     constructor(props) {
@@ -8,6 +9,14 @@ class App extends Component {
         this.state = {
             algorithm: undefined,
             imageSrc: undefined
+        };
+    }
+
+    componentDidMount() {
+        const image = document.querySelector("#source-image");
+        image.onload = () => {
+            console.log("loaded image");
+            detect("#source-image")
         };
     }
 
@@ -76,15 +85,20 @@ class App extends Component {
                     </Menu>
                 </Aside>
                 <Main>
-                    {imageSrc && (
-                        <Image
-                            alt="Obraz źródłowy"
-                            centered
-                            src={imageSrc}
-                            size="large"
-                            bordered
-                        />
-                    )}
+                    <Image
+                        alt="Obraz źródłowy"
+                        centered
+                        id="source-image"
+                        src={imageSrc}
+                        size="large"
+                        bordered
+                    />
+
+                    {/* <img
+                        alt="test"
+                        id="source-image"
+                        src="https://raw.githubusercontent.com/eduardolundgren/tracking.js/master/examples/assets/faces.jpg"
+                    /> */}
                 </Main>
             </Container>
         );
