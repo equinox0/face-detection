@@ -1,136 +1,54 @@
-import React, { Component, Fragment } from "react";
-import { Button, Divider, Dropdown, Image, Input, Menu } from "semantic-ui-react";
-import styled from "styled-components";
-import { detect } from "./utils/viola-jones";
+import React, { Component } from "react";
+import { Container, Grid, Menu, Segment } from "semantic-ui-react";
+import { Images, Results } from "./components";
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            algorithm: undefined,
-            imageSrc: undefined,
-            isDetecting: false,
-            result: undefined
+            activeItem: "images"
         };
     }
 
-    onAlgorithmChange = (event, { value: algorithm }) => {
-        this.setState({ algorithm });
-    };
-
-    onOpenFile = ({ target }) => {
-        const file = target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = ({ target }) => {
-                this.setState({ imageSrc: target.result });
-            };
-            reader.readAsDataURL(file);
-        } else {
-            this.setState({ imageSrc: undefined });
-        }
-    };
-
-    onStartDetection = async () => {
-        this.setState({ isDetecting: true });
-        const startTime = Date.now();
-        const { detected } = await detect("#source-image");
-        const time = Date.now() - startTime;
-        this.setState({ isDetecting: false, result: { detected, time } });
-    };
+    handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
     render() {
-        const { algorithm, imageSrc, isDetecting, result } = this.state;
-        const isStartDisabled = !algorithm || !imageSrc || isDetecting;
-
         return (
-            <Container>
-                <Aside>
-                    <Menu attached borderless fluid vertical>
-                        <Menu.Item>
-                            <Input
-                                accept="image/*"
-                                disabled={isDetecting}
-                                fluid
-                                onChange={this.onOpenFile}
-                                type="file"
-                            />
-                        </Menu.Item>
-                        <Menu.Item>
-                            <Dropdown
-                                disabled={isDetecting}
-                                fluid
-                                onChange={this.onAlgorithmChange}
-                                placeholder="Wybierz algorytm"
-                                selection
-                                options={[{ text: "Viola Jones", value: "violaJones" }]}
-                            />
-                        </Menu.Item>
-                        <Menu.Item>
-                            <Button
-                                content="Start"
-                                disabled={isStartDisabled}
-                                fluid
-                                icon="eye"
-                                labelPosition="left"
-                                loading={isDetecting}
-                                onClick={this.onStartDetection}
-                                positive
-                            />
-                        </Menu.Item>
-                        <Divider />
-                        {result && (
-                            <Fragment>
-                                <Menu.Item header>Szykość działania</Menu.Item>
-                                <Menu.Item>{`${result.time}ms`}</Menu.Item>
-                                <Menu.Item header>Klatki / sekundę</Menu.Item>
-                                <Menu.Item>{`${result.time * 60}fps`}</Menu.Item>
-                                <Menu.Item header>Wykryto twarz</Menu.Item>
-                                <Menu.Item>{result.detected ? "Tak" : "Nie"}</Menu.Item>
-                            </Fragment>
-                        )}
-                    </Menu>
-                </Aside>
-                <Main>
-                    {imageSrc && (
-                        <Image
-                            alt="Obraz źródłowy"
-                            centered
-                            id="source-image"
-                            src={imageSrc}
-                            size="large"
-                            bordered
-                        />
-                    )}
-                </Main>
-            </Container>
+            <Grid>
+                <Grid.Row>
+                    <Grid.Column>
+                        <Menu attached>
+                            <Menu.Item header>Alicja Zelewska</Menu.Item>
+                            <Menu.Menu position="right">
+                                <Menu.Item
+                                    name="results"
+                                    active={this.state.activeItem === "results"}
+                                    onClick={this.handleItemClick}
+                                >
+                                    Wyniki
+                                </Menu.Item>
+                                <Menu.Item
+                                    name="images"
+                                    active={this.state.activeItem === "images"}
+                                    onClick={this.handleItemClick}
+                                >
+                                    Zdjęcia
+                                </Menu.Item>
+                            </Menu.Menu>
+                        </Menu>
+                    </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                    <Grid.Column>
+                        <Container as={Segment}>
+                            {this.state.activeItem === "results" && <Results />}
+                            {this.state.activeItem === "images" && <Images />}
+                        </Container>
+                    </Grid.Column>
+                </Grid.Row>
+            </Grid>
         );
     }
 }
-
-const Container = styled.div`
-    bottom: 0;
-    display: flex;
-    left: 0;
-    top: 0;
-    position: fixed;
-    right: 0;
-`;
-
-const Aside = styled.aside`
-    flex-basis: 300px;
-    width: 300px;
-
-    & > .menu {
-        height: 100%;
-    }
-`;
-
-const Main = styled.main`
-    align-items: center;
-    display: flex;
-    flex-grow: 1;
-    justify-content: center;
-`;
 
 export default App;

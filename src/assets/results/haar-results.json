@@ -1,0 +1,84 @@
+[
+    {
+        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\haar\\..\\images\\image_0.png",
+        "time": "371.2477684020996",
+        "detected": []
+    },
+    {
+        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\haar\\..\\images\\image_1.png",
+        "time": "6.003856658935547",
+        "detected": []
+    },
+    {
+        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\haar\\..\\images\\image_10.png",
+        "time": "6.004095077514648",
+        "detected": []
+    },
+    {
+        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\haar\\..\\images\\image_11.png",
+        "time": "6.003141403198242",
+        "detected": []
+    },
+    {
+        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\haar\\..\\images\\image_12.png",
+        "time": "6.005287170410156",
+        "detected": [
+            {
+                "x": 31,
+                "y": 44,
+                "w": 53,
+                "h": 53
+            }
+        ]
+    },
+    {
+        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\haar\\..\\images\\image_13.png",
+        "time": "4.002094268798828",
+        "detected": []
+    },
+    {
+        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\haar\\..\\images\\image_14.png",
+        "time": "4.002571105957031",
+        "detected": []
+    },
+    {
+        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\haar\\..\\images\\image_2.png",
+        "time": "6.004095077514648",
+        "detected": []
+    },
+    {
+        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\haar\\..\\images\\image_3.png",
+        "time": "6.003618240356445",
+        "detected": []
+    },
+    {
+        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\haar\\..\\images\\image_4.png",
+        "time": "7.004737854003906",
+        "detected": []
+    },
+    {
+        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\haar\\..\\images\\image_5.png",
+        "time": "7.004976272583008",
+        "detected": []
+    },
+    {
+        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\haar\\..\\images\\image_6.png",
+        "time": "6.003856658935547",
+        "detected": []
+    },
+    {
+        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\haar\\..\\images\\image_7.png",
+        "time": "5.0029754638671875",
+        "detected": []
+    },
+    {
+        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\haar\\..\\images\\image_8.png",
+        "time": "6.004095077514648",
+        "detected": []
+    },
+    {
+        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\haar\\..\\images\\image_9.png",
+        "time": "4.002809524536133",
+        "detected": []
+    }
+]
