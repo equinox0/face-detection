@@ -58,7 +58,7 @@ const enhance = compose(
 );
 
 const drawRectOnContext = (context, { x, y, w, h }) => {
-    context.strokeStyle = "#FFFF00";
+    context.strokeStyle = "#00FF00";
     context.lineWidth = 2;
     context.translate(0, 0);
     context.strokeRect(x, y, w, h);

@@ -1,77 +1,148 @@
 [
     {
-        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\hog\\..\\images\\image_0.png",
+        "path": "image_0.png",
         "time": "187.12472915649414",
-        "detected": []
+        "detected": [
+            {
+                "x": 34,
+                "y": 51,
+                "w": 46,
+                "h": 56
+            }
+        ],
+        "shouldDetect": true
     },
     {
-        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\hog\\..\\images\\image_1.png",
+        "path": "image_1.png",
         "time": "30.025959014892578",
-        "detected": []
+        "detected": [],
+        "shouldDetect": false
     },
     {
-        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\hog\\..\\images\\image_10.png",
+        "path": "image_10.png",
         "time": "39.02077674865723",
-        "detected": []
+        "detected": [
+            {
+                "x": 38,
+                "y": 50,
+                "w": 35,
+                "h": 47
+            }
+        ],
+        "shouldDetect": true
     },
     {
-        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\hog\\..\\images\\image_11.png",
+        "path": "image_11.png",
         "time": "33.020973205566406",
-        "detected": []
+        "detected": [],
+        "shouldDetect": true
     },
     {
-        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\hog\\..\\images\\image_12.png",
+        "path": "image_12.png",
         "time": "35.02321243286133",
-        "detected": []
+        "detected": [
+            {
+                "x": 36,
+                "y": 40,
+                "w": 41,
+                "h": 55
+            }
+        ],
+        "shouldDetect": true
     },
     {
-        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\hog\\..\\images\\image_13.png",
+        "path": "image_13.png",
         "time": "36.025047302246094",
-        "detected": []
+        "detected": [],
+        "shouldDetect": false
     },
     {
-        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\hog\\..\\images\\image_14.png",
+        "path": "image_14.png",
         "time": "33.020973205566406",
-        "detected": []
+        "detected": [],
+        "shouldDetect": false
     },
     {
-        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\hog\\..\\images\\image_2.png",
+        "path": "image_2.png",
         "time": "37.024497985839844",
-        "detected": []
+        "detected": [
+            {
+                "x": 41,
+                "y": 40,
+                "w": 60,
+                "h": 100
+            }
+        ],
+        "shouldDetect": true
     },
     {
-        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\hog\\..\\images\\image_3.png",
+        "path": "image_3.png",
         "time": "38.025617599487305",
-        "detected": []
+        "detected": [
+            {
+                "x": 23,
+                "y": 24,
+                "w": 68,
+                "h": 99
+            }
+        ],
+        "shouldDetect": true
     },
     {
-        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\hog\\..\\images\\image_4.png",
+        "path": "image_4.png",
         "time": "35.02321243286133",
-        "detected": []
+        "detected": [],
+        "shouldDetect": true
     },
     {
-        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\hog\\..\\images\\image_5.png",
+        "path": "image_5.png",
         "time": "32.02104568481445",
-        "detected": []
+        "detected": [],
+        "shouldDetect": true
     },
     {
-        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\hog\\..\\images\\image_6.png",
+        "path": "image_6.png",
         "time": "35.022735595703125",
-        "detected": []
+        "detected": [
+            {
+                "x": 26,
+                "y": 22,
+                "w": 57,
+                "h": 84
+            }
+        ],
+        "shouldDetect": true
     },
     {
-        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\hog\\..\\images\\image_7.png",
+        "path": "image_7.png",
         "time": "38.025617599487305",
-        "detected": []
+        "detected": [
+            {
+                "x": 22,
+                "y": 36,
+                "w": 51,
+                "h": 66
+            }
+        ],
+        "shouldDetect": true
     },
     {
-        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\hog\\..\\images\\image_8.png",
+        "path": "image_8.png",
         "time": "39.02602195739746",
-        "detected": []
+        "detected": [
+            {
+                "x": 26,
+                "y": 39,
+                "w": 64,
+                "h": 78
+            }
+        ],
+        "shouldDetect": true
     },
     {
-        "path": "C:\\Users\\USER\\Desktop\\Ala mgr\\Algorytmy\\hog\\..\\images\\image_9.png",
+        "path": "image_9.png",
         "time": "34.02376174926758",
-        "detected": []
+        "detected": [],
+        "shouldDetect": true
     }
 ]
