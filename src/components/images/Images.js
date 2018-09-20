@@ -1,23 +1,21 @@
 import { times } from "lodash";
 import React from "react";
-import { compose, lifecycle, withState } from "recompose";
+import { compose, lifecycle, withHandlers, withState } from "recompose";
 import { Label, Loader, Segment } from "semantic-ui-react";
 import styled from "styled-components";
-import ImageWithFaceHighlighter from './ImageWithFaceHighlighter'
+import ImageWithFaceHighlighter from "./ImageWithFaceHighlighter";
 
-const Images = ({ images, isLoading }) =>
-    isLoading ? (
-        <Loader content="Ładowanie zdjęć..." />
-    ) : (
-        <ImagesContainer>
-            {images.map(({ name, src }, index) => (
-                <Segment compact key={index} padded>
-                    <Label attached="bottom">{name}</Label>
-                    <ImageWithFaceHighlighter alt={name} src={src} />
-                </Segment>
-            ))}
-        </ImagesContainer>
-    );
+const Images = ({ images, isLoading }) => (
+    <ImagesContainer>
+        <Loader active={isLoading} content="Ładowanie zdjęć..." inline="centered" />
+        {images.map(({ name, src }, index) => (
+            <Segment compact key={index} padded>
+                <Label attached="bottom">{name}</Label>
+                <ImageWithFaceHighlighter alt={name} src={src} />
+            </Segment>
+        ))}
+    </ImagesContainer>
+);
 
 const ImagesContainer = styled.div`
     && {
@@ -34,10 +32,10 @@ const ImagesContainer = styled.div`
 const enhance = compose(
     withState("images", "setImages", []),
     withState("isLoading", "setLoading", false),
-    lifecycle({
-        async componentDidMount() {
-            this.props.setLoading(true);
-            const imagesPromises = times(15, index =>
+    withHandlers({
+        fetchImages: ({setImages,setLoading}) => async () => {
+            setLoading(true);
+            const imagesPromises = times(32, index =>
                 import(`./../../assets/images/image_${index}.png`)
             );
             const imagesSrcs = await Promise.all(imagesPromises);
@@ -45,8 +43,13 @@ const enhance = compose(
                 name: `image_${index}.png`,
                 src
             }));
-            this.props.setImages(images);
-            this.props.setLoading(false);
+            setImages(images);
+            setLoading(false);
+        }
+    }),
+    lifecycle({
+        async componentDidMount() {
+            this.props.fetchImages()
         }
     })
 );

@@ -1,28 +1,18 @@
 import React from "react";
-import { compose, withHandlers, withProps, withState } from "recompose";
-import { Dropdown, Grid, Message } from "semantic-ui-react";
+import { compose, lifecycle,  withState, withHandlers } from "recompose";
+import { Grid, Message } from "semantic-ui-react";
 import ResultsTable from "./ResultsTable";
 
-const Results = ({ algorithms, onChangeAlgorithm, results, selectedAlgorithm }) => (
+const Results = ({ results }) => (
     <Grid>
         <Grid.Row>
             <Grid.Column>
-                <Dropdown
-                    onChange={onChangeAlgorithm}
-                    options={algorithms}
-                    placeholder="Wybierz algorytm"
-                    selection
-                    value={selectedAlgorithm}
-                />
-            </Grid.Column>
-        </Grid.Row>
-        <Grid.Row>
-            <Grid.Column>
-                {selectedAlgorithm ? (
+                {results.length > 0 ? (
                     <ResultsTable results={results} />
                 ) : (
                     <Message
-                        content="Wybierz algorytm z listy, aby wyświetlić wyniki pomiarów."
+                        header="Brak wyników"
+                        content="W celu wyświetlenia wyników należy wybrać algorytm z listy w nagłówku strony"
                         icon="help"
                     />
                 )}
@@ -32,20 +22,27 @@ const Results = ({ algorithms, onChangeAlgorithm, results, selectedAlgorithm }) 
 );
 
 const enhance = compose(
-    withState("selectedAlgorithm", "setSelectedAlgorithm", undefined),
     withState("results", "setResults", []),
-    withProps({
-        algorithms: [
-            { text: "Haar", value: "haar" },
-            { text: "LBP", value: "lbp" },
-            { text: "HOG", value: "hog" }
-        ]
-    }),
     withHandlers({
-        onChangeAlgorithm: ({ setResults, setSelectedAlgorithm }) => async (e, { value }) => {
-            setSelectedAlgorithm(value);
-            const results = await import(`./../../assets/results/${value}-results.json`);
-            setResults(results);
+        fetchResults: ({ algorithm, setResults }) => async () => {
+            try {
+                const results = await import(`./../../assets/results/${algorithm}-results.json`);
+                setResults(results);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    }),
+    lifecycle({
+        componentDidMount() {
+            if(this.props.algorithm) {
+                this.props.fetchResults()
+            }
+        },
+        componentDidUpdate(prevProps) {
+            if (prevProps.algorithm !== this.props.algorithm) {
+                this.props.fetchResults()
+            }
         }
     })
 );

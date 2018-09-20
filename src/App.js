@@ -1,16 +1,18 @@
 import React, { Component } from "react";
-import { Container, Grid, Menu, Segment } from "semantic-ui-react";
+import { Redirect, NavLink, Route, Switch } from "react-router-dom";
+import { Container, Dropdown, Grid, Menu, Segment } from "semantic-ui-react";
 import { Images, Results } from "./components";
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeItem: "results"
+            selectedAlgorithm: undefined
         };
     }
 
-    handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+    handleSelectAlgorithm = (e, { value: selectedAlgorithm }) =>
+        this.setState({ selectedAlgorithm });
 
     render() {
         return (
@@ -19,19 +21,24 @@ class App extends Component {
                     <Grid.Column>
                         <Menu attached>
                             <Menu.Item header>Alicja Zelewska</Menu.Item>
+                            <Menu.Item>
+                                <Dropdown
+                                    onChange={this.handleSelectAlgorithm}
+                                    options={[
+                                        { text: "Haar", value: "haar" },
+                                        { text: "LBP", value: "lbp" },
+                                        { text: "HOG", value: "hog" }
+                                    ]}
+                                    placeholder="Wybierz algorytm"
+                                    selection
+                                    value={this.state.selectedAlgorithm}
+                                />
+                            </Menu.Item>
                             <Menu.Menu position="right">
-                                <Menu.Item
-                                    name="results"
-                                    active={this.state.activeItem === "results"}
-                                    onClick={this.handleItemClick}
-                                >
+                                <Menu.Item as={NavLink} to="/wyniki">
                                     Wyniki
                                 </Menu.Item>
-                                <Menu.Item
-                                    name="images"
-                                    active={this.state.activeItem === "images"}
-                                    onClick={this.handleItemClick}
-                                >
+                                <Menu.Item as={NavLink} to="/zdjecia">
                                     Zdjęcia
                                 </Menu.Item>
                             </Menu.Menu>
@@ -41,8 +48,27 @@ class App extends Component {
                 <Grid.Row>
                     <Grid.Column>
                         <Container as={Segment}>
-                            {this.state.activeItem === "results" && <Results />}
-                            {this.state.activeItem === "images" && <Images />}
+                            <Switch>
+                                <Route
+                                    path="/wyniki"
+                                    render={routeProps => (
+                                        <Results
+                                            {...routeProps}
+                                            algorithm={this.state.selectedAlgorithm}
+                                        />
+                                    )}
+                                />
+                                <Route
+                                    path="/zdjecia"
+                                    render={routeProps => (
+                                        <Images
+                                            {...routeProps}
+                                            algorithm={this.state.selectedAlgorithm}
+                                        />
+                                    )}
+                                />
+                                <Redirect to="/wyniki" />
+                            </Switch>
                         </Container>
                     </Grid.Column>
                 </Grid.Row>
