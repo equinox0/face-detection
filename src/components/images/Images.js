@@ -3,15 +3,15 @@ import React from "react";
 import { compose, lifecycle, withHandlers, withState } from "recompose";
 import { Label, Loader, Segment } from "semantic-ui-react";
 import styled from "styled-components";
-import ImageWithFaceHighlighter from "./ImageWithFaceHighlighter";
+import FaceImage from "./FaceImage";
 
 const Images = ({ images, isLoading }) => (
     <ImagesContainer>
         <Loader active={isLoading} content="Ładowanie zdjęć..." inline="centered" />
-        {images.map(({ name, src }, index) => (
+        {images.map(({ coordinates, name, size, src }, index) => (
             <Segment compact key={index} padded>
                 <Label attached="bottom">{name}</Label>
-                <ImageWithFaceHighlighter alt={name} src={src} />
+                <FaceImage alt={name} coordinates={coordinates} size={size} src={src} />
             </Segment>
         ))}
     </ImagesContainer>
@@ -30,10 +30,11 @@ const ImagesContainer = styled.div`
 `;
 
 const enhance = compose(
+    withState("baseImages", "setBaseImages", []),
     withState("images", "setImages", []),
     withState("isLoading", "setLoading", false),
     withHandlers({
-        fetchImages: ({setImages,setLoading}) => async () => {
+        fetchBaseImages: ({ setBaseImages, setImages, setLoading }) => async () => {
             setLoading(true);
             const imagesPromises = times(32, index =>
                 import(`./../../assets/images/image_${index}.png`)
@@ -43,13 +44,40 @@ const enhance = compose(
                 name: `image_${index}.png`,
                 src
             }));
+            setBaseImages(images);
             setImages(images);
             setLoading(false);
+        },
+        onResultsChange: ({ baseImages, results, setImages }) => () => {
+            const newImages = baseImages.map(image => {
+                const resultWithDetection = results.find(
+                    ({ detected, path }) => path === image.name && detected.length > 0
+                );
+                return resultWithDetection !== undefined
+                    ? {
+                          ...image,
+                          coordinates: {
+                              x: resultWithDetection.detected[0].x,
+                              y: resultWithDetection.detected[0].y
+                          },
+                          size: {
+                              w: resultWithDetection.detected[0].w,
+                              h: resultWithDetection.detected[0].h
+                          }
+                      }
+                    : image;
+            });
+            setImages(newImages);
         }
     }),
     lifecycle({
         async componentDidMount() {
-            this.props.fetchImages()
+            this.props.fetchBaseImages();
+        },
+        async componentDidUpdate({ results: prevResults }) {
+            if (prevResults !== this.props.results) {
+                this.props.onResultsChange();
+            }
         }
     })
 );
