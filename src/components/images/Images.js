@@ -8,10 +8,10 @@ import FaceImage from "./FaceImage";
 const Images = ({ images, isLoading }) => (
     <ImagesContainer>
         <Loader active={isLoading} content="Ładowanie zdjęć..." inline="centered" />
-        {images.map(({ coordinates, name, size, src }, index) => (
+        {images.map(({ detectedFaces, name, size, src }, index) => (
             <Segment compact key={index} padded>
                 <Label attached="bottom">{name}</Label>
-                <FaceImage alt={name} coordinates={coordinates} size={size} src={src} />
+                <FaceImage alt={name} detectedFaces={detectedFaces} size={size} src={src} />
             </Segment>
         ))}
     </ImagesContainer>
@@ -56,14 +56,7 @@ const enhance = compose(
                 return resultWithDetection !== undefined
                     ? {
                           ...image,
-                          coordinates: {
-                              x: resultWithDetection.detected[0].x,
-                              y: resultWithDetection.detected[0].y
-                          },
-                          size: {
-                              w: resultWithDetection.detected[0].w,
-                              h: resultWithDetection.detected[0].h
-                          }
+                          detectedFaces: [...resultWithDetection.detected]
                       }
                     : image;
             });
@@ -72,7 +65,10 @@ const enhance = compose(
     }),
     lifecycle({
         async componentDidMount() {
-            this.props.fetchBaseImages();
+            await this.props.fetchBaseImages();
+            if (this.props.results) {
+                this.props.onResultsChange();
+            }
         },
         async componentDidUpdate({ results: prevResults }) {
             if (prevResults !== this.props.results) {

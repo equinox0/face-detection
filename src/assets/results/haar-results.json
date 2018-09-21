@@ -1,162 +1,418 @@
 [
     {
         "path": "image_0.png",
-        "time": "371.2477684020996",
+        "time": "1180.0296306610107",
         "detected": [
             {
-                "x": 33,
-                "y": 39,
-                "w": 52,
-                "h": 73
+                "x": 32,
+                "y": 105,
+                "w": 39,
+                "h": 39
+            },
+            {
+                "x": 24,
+                "y": 30,
+                "w": 71,
+                "h": 71
             }
         ],
         "shouldDetect": true
     },
     {
         "path": "image_1.png",
-        "time": "6.003856658935547",
+        "time": "33.02121162414551",
         "detected": [],
         "shouldDetect": false
     },
     {
         "path": "image_10.png",
-        "time": "6.004095077514648",
-        "detected": [],
+        "time": "91.06040000915527",
+        "detected": [
+            {
+                "x": 37,
+                "y": 50,
+                "w": 48,
+                "h": 48
+            }
+        ],
         "shouldDetect": true
     },
     {
         "path": "image_11.png",
-        "time": "6.003141403198242",
-        "detected": [],
+        "time": "80.05332946777344",
+        "detected": [
+            {
+                "x": 42,
+                "y": 58,
+                "w": 29,
+                "h": 29
+            }
+        ],
         "shouldDetect": true
     },
     {
         "path": "image_12.png",
-        "time": "6.005287170410156",
+        "time": "108.07061195373535",
         "detected": [
             {
-                "x": 31,
-                "y": 44,
-                "w": 53,
-                "h": 53
+                "x": 29,
+                "y": 39,
+                "w": 54,
+                "h": 54
             }
         ],
         "shouldDetect": true
     },
     {
         "path": "image_13.png",
-        "time": "4.002094268798828",
+        "time": "43.029069900512695",
         "detected": [],
         "shouldDetect": false
     },
     {
         "path": "image_14.png",
-        "time": "4.002571105957031",
+        "time": "55.036067962646484",
         "detected": [],
         "shouldDetect": false
     },
     {
+        "path": "image_15.png",
+        "time": "104.06970977783203",
+        "detected": [
+            {
+                "x": 32,
+                "y": 37,
+                "w": 62,
+                "h": 62
+            }
+        ],
+        "shouldDetect": true
+    },
+    {
+        "path": "image_16.png",
+        "time": "92.06032752990723",
+        "detected": [
+            {
+                "x": 18,
+                "y": 26,
+                "w": 69,
+                "h": 69
+            }
+        ],
+        "shouldDetect": true
+    },
+    {
+        "path": "image_17.png",
+        "time": "74.0501880645752",
+        "detected": [],
+        "shouldDetect": false
+    },
+    {
+        "path": "image_18.png",
+        "time": "129.08625602722168",
+        "detected": [
+            {
+                "x": 33,
+                "y": 64,
+                "w": 40,
+                "h": 40
+            }
+        ],
+        "shouldDetect": true
+    },
+    {
+        "path": "image_19.png",
+        "time": "133.0876350402832",
+        "detected": [
+            {
+                "x": 43,
+                "y": 84,
+                "w": 28,
+                "h": 28
+            }
+        ],
+        "shouldDetect": true
+    },
+    {
         "path": "image_2.png",
-        "time": "6.004095077514648",
+        "time": "146.09670639038086",
         "detected": [
             {
-                "x": 35,
-                "y": 30,
-                "w": 66,
-                "h": 82
+                "x": 37,
+                "y": 34,
+                "w": 60,
+                "h": 60
             }
         ],
         "shouldDetect": true
     },
     {
-        "path": "image_3.png",
-        "time": "6.003618240356445",
+        "path": "image_20.png",
+        "time": "116.08338356018066",
         "detected": [
             {
-                "x": 22,
-                "y": 23,
-                "w": 71,
-                "h": 91
+                "x": 21,
+                "y": 20,
+                "w": 86,
+                "h": 86
             }
         ],
         "shouldDetect": true
     },
     {
-        "path": "image_4.png",
-        "time": "7.004737854003906",
+        "path": "image_21.png",
+        "time": "113.06929588317871",
         "detected": [
             {
                 "x": 23,
-                "y": 27,
-                "w": 53,
-                "h": 74
+                "y": 39,
+                "w": 59,
+                "h": 59
             }
         ],
         "shouldDetect": true
     },
     {
-        "path": "image_5.png",
-        "time": "7.004976272583008",
+        "path": "image_22.png",
+        "time": "114.0751838684082",
         "detected": [
             {
-                "x": 39,
-                "y": 10,
-                "w": 58,
-                "h": 76
+                "x": 23,
+                "y": 40,
+                "w": 63,
+                "h": 63
             }
         ],
         "shouldDetect": true
     },
     {
-        "path": "image_6.png",
-        "time": "6.003856658935547",
+        "path": "image_23.png",
+        "time": "95.06344795227051",
         "detected": [
             {
-                "x": 28,
-                "y": 22,
-                "w": 58,
+                "x": 27,
+                "y": 11,
+                "w": 77,
                 "h": 77
             }
         ],
         "shouldDetect": true
     },
     {
-        "path": "image_7.png",
-        "time": "5.0029754638671875",
+        "path": "image_24.png",
+        "time": "104.06994819641113",
         "detected": [
             {
-                "x": 23,
-                "y": 33,
-                "w": 54,
+                "x": 44,
+                "y": 17,
+                "w": 38,
+                "h": 38
+            },
+            {
+                "x": 16,
+                "y": 35,
+                "w": 57,
+                "h": 57
+            },
+            {
+                "x": 16,
+                "y": 1,
+                "w": 73,
+                "h": 73
+            }
+        ],
+        "shouldDetect": true
+    },
+    {
+        "path": "image_25.png",
+        "time": "63.040971755981445",
+        "detected": [
+            {
+                "x": 29,
+                "y": 49,
+                "w": 67,
                 "h": 67
             }
         ],
         "shouldDetect": true
     },
     {
-        "path": "image_8.png",
-        "time": "6.004095077514648",
+        "path": "image_26.png",
+        "time": "125.08344650268555",
         "detected": [
             {
-                "x": 28,
-                "y": 42,
-                "w": 59,
+                "x": 20,
+                "y": 25,
+                "w": 81,
+                "h": 81
+            }
+        ],
+        "shouldDetect": true
+    },
+    {
+        "path": "image_27.png",
+        "time": "91.06063842773438",
+        "detected": [
+            {
+                "x": 22,
+                "y": 32,
+                "w": 74,
                 "h": 74
             }
         ],
         "shouldDetect": true
     },
     {
-        "path": "image_9.png",
-        "time": "4.002809524536133",
+        "path": "image_28.png",
+        "time": "61.04111671447754",
         "detected": [
             {
-                "x": 17,
-                "y": 50,
-                "w": 58,
-                "h": 74
+                "x": 25,
+                "y": 32,
+                "w": 73,
+                "h": 73
             }
         ],
+        "shouldDetect": true
+    },
+    {
+        "path": "image_29.png",
+        "time": "62.04056739807129",
+        "detected": [
+            {
+                "x": 29,
+                "y": 32,
+                "w": 73,
+                "h": 73
+            }
+        ],
+        "shouldDetect": true
+    },
+    {
+        "path": "image_3.png",
+        "time": "78.05180549621582",
+        "detected": [
+            {
+                "x": 19,
+                "y": 19,
+                "w": 82,
+                "h": 82
+            }
+        ],
+        "shouldDetect": true
+    },
+    {
+        "path": "image_30.png",
+        "time": "67.04449653625488",
+        "detected": [
+            {
+                "x": 5,
+                "y": 61,
+                "w": 93,
+                "h": 93
+            }
+        ],
+        "shouldDetect": true
+    },
+    {
+        "path": "image_31.png",
+        "time": "78.05180549621582",
+        "detected": [
+            {
+                "x": 12,
+                "y": 43,
+                "w": 45,
+                "h": 45
+            },
+            {
+                "x": 4,
+                "y": 52,
+                "w": 92,
+                "h": 92
+            }
+        ],
+        "shouldDetect": true
+    },
+    {
+        "path": "image_4.png",
+        "time": "76.0502815246582",
+        "detected": [
+            {
+                "x": 77,
+                "y": 96,
+                "w": 34,
+                "h": 34
+            },
+            {
+                "x": 24,
+                "y": 41,
+                "w": 49,
+                "h": 49
+            }
+        ],
+        "shouldDetect": true
+    },
+    {
+        "path": "image_5.png",
+        "time": "80.05380630493164",
+        "detected": [
+            {
+                "x": 36,
+                "y": 28,
+                "w": 57,
+                "h": 57
+            },
+            {
+                "x": 41,
+                "y": 95,
+                "w": 63,
+                "h": 63
+            }
+        ],
+        "shouldDetect": true
+    },
+    {
+        "path": "image_6.png",
+        "time": "73.04835319519043",
+        "detected": [
+            {
+                "x": 23,
+                "y": 22,
+                "w": 73,
+                "h": 73
+            }
+        ],
+        "shouldDetect": true
+    },
+    {
+        "path": "image_7.png",
+        "time": "64.04256820678711",
+        "detected": [
+            {
+                "x": 22,
+                "y": 112,
+                "w": 43,
+                "h": 43
+            },
+            {
+                "x": 15,
+                "y": 21,
+                "w": 71,
+                "h": 71
+            }
+        ],
+        "shouldDetect": true
+    },
+    {
+        "path": "image_8.png",
+        "time": "68.04513931274414",
+        "detected": [],
+        "shouldDetect": true
+    },
+    {
+        "path": "image_9.png",
+        "time": "47.031402587890625",
+        "detected": [],
         "shouldDetect": true
     }
 ]

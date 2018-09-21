@@ -32,30 +32,28 @@ const enhance = compose(
     withState("canvasRef", "setCanvasRef", undefined),
     withState("imageRef", "setImageRef", undefined),
     withHandlers({
-        handleDrawRectangle: ({ canvasRef, coordinates, size }) => () => {
+        handleDrawRectangle: ({ canvasRef, detectedFaces }) => () => {
             if (canvasRef) {
                 const context = canvasRef.getContext("2d");
                 context.clearRect(0, 0, canvasRef.width, canvasRef.height);
-                if (coordinates && size) {
-                    const rect = { ...coordinates, ...size };
-                    drawRectOnContext(context, rect);
+                if (detectedFaces) {
+                    detectedFaces.forEach(detectedFace =>
+                        drawFaceRectOnContext(context, detectedFace)
+                    );
                 }
             }
         }
     }),
     lifecycle({
-        componentDidUpdate({ coordinates: prevCoordinates, size: prevSize }) {
-            if (
-                !isEqual(this.props.coordinates, prevCoordinates) ||
-                !isEqual(this.props.size, prevSize)
-            ) {
+        componentDidUpdate({ detectedFaces: prevDetectedFaces }) {
+            if (!isEqual(this.props.detectedFaces, prevDetectedFaces)) {
                 this.props.handleDrawRectangle();
             }
         }
     })
 );
 
-const drawRectOnContext = (context, { x, y, w, h }) => {
+const drawFaceRectOnContext = (context, { x, y, w, h }) => {
     context.strokeStyle = "#00FF00";
     context.lineWidth = 2;
     context.translate(0, 0);
